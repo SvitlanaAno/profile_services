@@ -43,4 +43,7 @@ public class Repository {
         people.put(p.getName(), p);
         return p;
     }
+    public void clearAll(){
+        people.clear();
+    }
 }

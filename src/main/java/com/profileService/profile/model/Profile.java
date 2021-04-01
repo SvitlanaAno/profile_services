@@ -2,6 +2,7 @@ package com.profileService.profile.model;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -18,6 +19,10 @@ public class Profile {
     private List<String> experiences;
     private List<String> educations;
 
+    public Profile(){
+
+    }
+
     public Profile(long id, String name) {
         this.id = id;
         this.name = name;
@@ -28,6 +33,19 @@ public class Profile {
         this.lastName = lastName;
         this.position = position;
     }
+
+    public Profile(long id, String name, String lastName, String position, String education, String about, String experience) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.position = position;
+        this.about = about;
+        this.educations = new ArrayList<>();
+        educations.add(education);
+        this.experiences = new ArrayList<>();
+        experiences.add(experience);
+    }
+
 
     public long getId() {
         return id;
@@ -85,6 +103,9 @@ public class Profile {
         this.about = about;
     }
 
+    public String getExperience() {
+        return experiences.get(0);
+    }
     public List<String> getExperiences() {
         return experiences;
     }
@@ -95,6 +116,9 @@ public class Profile {
 
     public List<String> getEducations() {
         return educations;
+    }
+    public String getEducation() {
+        return educations.get(0);
     }
 
     public void setEducations(List<String> educations) {
